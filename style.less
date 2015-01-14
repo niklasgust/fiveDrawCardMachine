@@ -1,0 +1,253 @@
+/**
+ * Import base style
+ */
+//@import "../mall/base.less";
+@import "base.less";
+@import url('http://fonts.googleapis.com/css?family=Raleway'); 
+/**
+ * Here comes specific style for a certain test program.
+ */
+ 
+ 
+ /**
+ Jq..
+ 
+ */
+ .AweFonts{
+      font-family: Raleway, sans-serif;
+ }
+ #underHead{
+ letter-spacing: 0.6px;
+ color:#333;
+ }
+ 
+ .dark{
+    background-color:#000;
+    color:#fff;
+ }
+ 
+ #antalKort{
+    position:relative; 
+    background-color:@greyLighter;
+    border:#000;
+    padding:10px;
+    width:150px;
+    .border-radius(25px);
+   float:left;
+   //.box-shadow();
+ }
+ 
+ #yoursdiv{
+   background-color:#000;
+   border:1px;
+ }
+ 
+ 
+ 
+#handtable{
+width:320px;
+     position:absolute;
+    top: 25px;
+    left: -50px;
+}
+
+td.tdleft{
+text-align: left;
+}
+
+td.tdright{
+text-align: right;
+}
+
+td.tdmargin{
+    padding-left:20px;
+}
+ 
+#yres{
+font-weight:bolder;
+}
+
+.resulatbar{
+    width:110px; //är padding 5px i boxarna innuti
+    background-color:#FF3D2B;
+    margin-top:5px;
+    border: 1px solid #000;
+  //  position : absolute;
+  //  top: 0px;
+  //  left: 300px;
+    
+}
+#resultsinbar{
+ position : relative;
+  top: 300px;
+  left: 300px;
+  background-color:#FFF;
+  width:300px;
+}
+
+
+.analys{
+font-family: georgia, serif;
+}
+
+#gameresult{
+z-index : 99;
+font-size: 15px;
+padding: 10px;
+border: 1px solid red;
+width: 300px;
+position: absolute;
+top: -83px;
+left: -450px;
+background-color: #fff;}
+
+
+
+ /** FORM
+ #deal{
+    width:100px;
+    color:#fff;
+ }
+ 
+ */
+ 
+ /**
+ CARD
+ */
+.left{float:left;}
+.cardMargin{margin-left:-50px; margin-bottom:-50px;}
+.cardMargin2{margin-left:-50px; margin-bottom:-50px; }
+
+.clearLeft{clear:left;}
+
+.showCards{position:relative; 
+ top:100px; left:50px;
+ //background-color:#CCC; 
+ padding:10px;
+ min-height:20em;
+// padding:15px;
+ width:500px;
+ float:left;
+
+}
+
+.outputPosition{
+    position:relative;
+  left:100px;
+  top:0px;
+
+}
+
+.choosen{
+position:absolute; top:0px; left:50px;
+width:500px;
+//background-color:#F1F1F1; 
+}
+.choosenarea{
+border:1px dashed #CCC;
+width:220px; 
+height:110px;
+padding:5px;
+position:absolute; top:150px; left:520px;
+background-color:#FFF;
+}
+#resultGame{
+overflow:auto;
+}
+
+#showCards{
+// background-image: url("bkgprojekt.JPG");
+// background-repeat: no-repeat;
+background-color:#CCC;
+ }
+
+ .card{width:82px;height:118px;background-image:url(WZ9Od.gif);
+
+/*background-position:0px -468px;*/
+
+  &.h2{background-position:0px 0px;}
+  &.h3{background-position:-81px 0;}
+  &.h4{background-position:-162px 0px;}
+   &.h5{background-position:-243px 0px;}
+    &.h6{background-position:-324px 0px;}
+      &.h7{background-position:-405px 0px;}
+        &.h8{background-position:-486px 0px;}
+          &.h9{background-position:-567px 0px;}
+          &.h10{background-position:-648px 0px;}
+           &.h11{background-position:-729px 0px;}
+              &.h12{background-position:-810px 0px;}
+              &.h13{background-position:-889px 0px;}
+               &.h14{background-position:-972px 0px;}
+
+               
+ &.d2{background-position:0px -117px;}              
+ &.d3{background-position:-81px -117px;}
+  &.d4{background-position:-162px -117px;}
+   &.d5{background-position:-243px -117px;}
+    &.d6{background-position:-324px -117px;}
+      &.d7{background-position:-405px -117px;}
+        &.d8{background-position:-486px -117px;}
+          &.d9{background-position:-567px -117px;}
+          &.d10{background-position:-648px -117px;}
+           &.d11{background-position:-729px -117px;}
+              &.d12{background-position:-810px -117px;}
+              &.d13{background-position:-889px -117px;}
+               &.d14{background-position:-972px -117px;}  
+               
+ &.c2{background-position:0px -234px;}                  
+  &.c3{background-position:-81px -234px;}
+  &.c4{background-position:-162px -234px;}
+   &.c5{background-position:-243px -234px;}
+    &.c6{background-position:-324px -234px;}
+      &.c7{background-position:-405px -234px;}
+        &.c8{background-position:-486px -234px;}
+          &.c9{background-position:-567px -234px;}
+          &.c10{background-position:-648px -234px;}
+           &.c11{background-position:-729px -234px;}
+              &.c12{background-position:-810px -234px;}
+              &.c13{background-position:-889px -234px;}
+               &.c14{background-position:-972px -234px;}    
+               
+ &.s2{background-position:0px -351px;}               
+ &.s3{background-position:-81px -351px;}
+  &.s4{background-position:-162px -351px;}
+   &.s5{background-position:-243px -351px;}
+    &.s6{background-position:-324px -351px;}
+      &.s7{background-position:-405px -351px;}
+        &.s8{background-position:-486px -351px;}
+          &.s9{background-position:-567px -351px;}
+          &.s10{background-position:-648px -351px;}
+           &.s11{background-position:-729px -351px;}
+              &.s12{background-position:-810px -351px;}
+              &.s13{background-position:-889px -351px;}
+               &.s14{background-position:-972px -351px;} 
+               
+               
+               
+}
+ 
+
+ 
+.card{cursor:pointer;width:82px;height:118px;background-image:url(WZ9Od.gif);.transition(all,0.1s);
+  &.style1{.transform(e('kew(30deg,30deg) translate(100px,100px)'));}
+  &.style2{.skew(30deg,30deg);}
+  &.style3{.translate(200px,200px);}
+  &.style4{.scale(0.5);}
+  &.style14{.scale(0.5);}
+  &.style5{.rotate(180deg); }
+  &.style15{.transform(e('rotate(0deg) scale(0.5)  translate(0px,-20px)'));}
+  &.style6{.transition(all,2s); .transform(e('rotate(1440deg) translate(300px,200px)'));}
+  &.style7{.scale(0.5); .transition(all,2s); .transform(e('rotate(-1440deg) translate(100px,50px)'));}
+  &.style8{.scale(1);}
+  &.style9{.skew(30deg,0);}
+  &.style10{.skew(0,30deg); .transform(e('rotate(1440deg) translate(300px,200px)'));}
+  &.style11{.skew(0,30deg);}
+  &.style12{.translate(100px,100px);} 
+  &.style13{.transform(e('rotate(180deg) translate(100px,100px)'));}
+ 
+}
+ 
+ 
+ 
+ 
+ 
