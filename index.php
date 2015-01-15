@@ -1,7 +1,6 @@
+<?php $title='Five draw card machine'; include(__DIR__ . '/../mall/header.php'); ?>
 
 
-
-<!-- Copy section. Copy the code below and insert to your php or HTML 5 file -->
 
 <div id="mainwrapper">
 <h1 class='AweFonts'>FIVE-CARD DRAW MACHINE</h1>
@@ -24,7 +23,7 @@
 <label>Antal giv <input id='rounds' type="number" name="antalSpelare" min="1" max="100000" value="100" style='width:50px;'>
 </label>
 <br/><br/>
-<label>Hand för hand (yes/no) <input id='handforhand' type="text" name="handforhand" value="no" style='width:50px;'>
+<label>Hand-för-hand-läge (yes/no) <input id='handforhand' type="text" name="handforhand" value="no" style='width:50px;'>
 </label>
 <br/>
 
@@ -51,11 +50,13 @@
 </form>
 </div> <!-- Close box -->
 
-<div id='bkgPlayGame'></div> <!--För att ge mörk bakgrund till lightbox-->
+
+<!--- OUTPUT AV SPELOMGÅNGAR -->
+ <div id='bkgPlayGame'></div>  <!--För att ge mörk bakgrund till lightbox-->
 <div id ='playGame' class="AweFonts">
 
 <p>Här visas den senaste spelrundan i hela spelserien.
-Dubbelklicka på boxen för att ta bort den.</p>
+Dubbelklicka på boxen eller tryck esc för att ta bort den.</p>
 
 <div class='outputPosition'>
 <div id='gameresult' class="AweFonts"></div>
@@ -74,4 +75,6 @@ Dubbelklicka på boxen för att ta bort den.</p>
 </div>
 </div> <!-- Slut på mainwrapper -->
 <p>&#169; 2015 Niklas Gustavsson</p>
-<!-- Stop -->
+
+
+<?php $path=__DIR__; include(__DIR__ . '/../mall/footer.php'); ?>

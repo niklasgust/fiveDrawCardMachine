@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 
 
-
+    
 //Sektion för kod till plugin
 
 (function($){
@@ -46,55 +46,33 @@ $(document).ready(function(){
             
     //variabler                    
     var LowestCard;  
+     //Card deck
+   if(deck == 52) {LowestCard = 2;}
+    else if (deck == 36) {LowestCard = 6;}
+   else {LowestCard = 7;} 
+    
     cardpick = new Audio("cardpick.mp3");
     loadsound = new Audio("finishload.mp3");
     startsound = new Audio("start.mp3");
      
    (new Audio()).canPlayType("audio/ogg; codecs=vorbis");
 
-   
-   
-   //Card deck
-   if(deck == 52) {LowestCard = 2;}
-   else if (deck == 36) {LowestCard = 6;}
-   else {LowestCard = 7;}   
-    
-   
-  //VISA KORTEN  
- // $('#cardShower').click(function() {
                   
-        //ta bort eventuella barn-element/kort           
-       $(".showCards").empty(); $(".choosen").empty(); $(".choosenHead").empty(); $("#dealbuttom").empty();
-       $("#comp1").empty();
-        $("#comp2").empty();
-        $("#comp3").empty();
-        $("#comp4").empty();
-        $("#yours").empty();
-        $("#yres").empty();
-        $("#c1res").empty();
-        $("#c2res").empty();
-         $("#c3res").empty();
-        $("#c4res").empty();
-        $("#yresname").empty();
-        $("#c1resname").empty();
-        $("#c2resname").empty();
-        $("#c3resname").empty();
-        $("#c4resname").empty();
-        $("#gameresult").empty();
-        $("#playGame").hide();
-         $("#bkgPlayGame").empty();
-        $("#bkgPlayGame").hide();
-        
-        $("#playGame").hide();
-        $('#simulate').hide(); 
-            
-      var h = "h", d= "d", s = "s", k = "c", c, e, f, g; 
-     //var clickh2 = true;
-     // var num = -1;
-      var clickCard;
-      var innerStyle;  
+        //ta bort eventuella barn-element/kort            
+          $(".showCards").empty(); 
+       $(".choosen").empty(); 
+       $(".choosenHead").empty(); 
+       $("#dealbuttom").empty();
+        $("#comp1, #comp2, #comp3, #comp4, #yours").empty();
+        $("#yres, #c1res, #c2res, #c3res, #c4res").empty();
+         $("#yresname, #c1resname, #c2resname, #c3resname, #c4resname").empty();
+         $("#gameresult, #bkgPlayGame").empty();
+         $("#playGame, #bkgPlayGame, #playGame, #simulate").hide();
+       
+       
       startsound.play();
    
+   //objekt för spelarnas kort och spel  
     var yourCard = {  
    cpick : "",
    cnum : 0,
@@ -151,36 +129,15 @@ $(document).ready(function(){
    }
  
    
- //Visa kort.
-      for(var i = 14;i>=LowestCard;i--){ //i>0 ska välja sedan över vilket kort.
-             c = h+i; e = s+i; f = d+i;g = k+i;
-             innerStyle = "float:left;";   
-             var classCard = c + " card style4 left cardMargin";
-             var spader = e + " card style4 left cardMargin";
-             var diamond = f + " card style4 left cardMargin";
-             var club = g + " card style4 left cardMargin";
-             
-         //  console.log('Initierade ' + c + ' klasser är: ' + classCard);    
-      
-         //outprinta kort              
-      $('<input id="' + c + '" class="' + classCard + '"' + 'style="' + innerStyle + '"' +
-              'type="button" value="' + c + '"/>')      
-     .appendTo('.showCards');
-     $('<input id="' + e + '" class="' + spader + '"' + 'type="button" value="' + e + '"/>') 
-     .appendTo('.showCards');
-       $('<input id="' + f + '" class="' + diamond + '"' + 'type="button" value="' + f + '"/>')   
-     .appendTo('.showCards');
-      $('<input id="' + g + '" class="' + club + '"' + 'type="button" value="' + g + '"/>')     
-     .appendTo('.showCards');
-     
-      } //close for-loop
- 
-  
-   
-   //Sektion för att välja kort till sin hand  
+ //Visa en serie kort att välja ifrån    
+  showAllCards();
 
+  
+  
+   //Sektion för att välja kort till sin hand  
    //TVÅOR:  
    $('#h2').mouseup(function(){
+                   
        $(this).hide();   
          cardpick.play();
            yourCard.cpick = "#h2"; yourCard.cnum = 52; yourCard.cname = "h2"; yourCard.aliasname = "ch2";
@@ -818,7 +775,7 @@ $(document).ready(function(){
  //skapa objekt drawGame
 var drawGame = { 
         
- //Funktion som blev en stor funktion.  
+ //Funktion som ska visa vilka kort man valt och validera att man valt rätt antal kort för att sedan starta simulering 
 CardPicker : function (cpick, cnum, cname, aliasname, num){
          
   $(cpick).click(function() { 
@@ -843,8 +800,8 @@ CardPicker : function (cpick, cnum, cname, aliasname, num){
                            'background-color' : '#333', 
                             'color' : '#fff',   
                             'position' : 'absolute',
-                            'top' : '150px',
-                            'left' : '150px',
+                            'top' : '50px',
+                            'left' : '195px',
                             'z-index' : '99',
                             'opacity' : '0.9'
                     }) 
@@ -875,8 +832,7 @@ dealcardsAndCountCardValue : function(){
             
        
         console.log('SHUFFLE UP AND DEAL'); 
-        
-                 
+                  
       //Här börjar loop för att spela önskat antal omgångar. 
       for(var gameloop = dummygame; gameloop>0; gameloop--){
           
@@ -885,33 +841,19 @@ dealcardsAndCountCardValue : function(){
             
               
                //Sektion för nollställnig
-                $("#comp1").empty();
-                $("#comp2").empty();
-                $("#comp3").empty();
-                $("#comp4").empty();
-                $("#yours").empty();
-                $("#yres").empty();
-                $("#c1res").empty();
-                $("#c2res").empty();
-                 $("#c3res").empty();
-                $("#c4res").empty();
-                $("#yresname").empty();
-                $("#c1resname").empty();
-                $("#c2resname").empty();
-                $("#c3resname").empty();
-                $("#c4resname").empty();
-                $("#load").empty();
-                 $("#bkgPlayGame").hide();
+               $("#comp1, #comp2, #comp3, #comp4, #yours").empty();
+               $("#yres, #c1res, #c2res, #c3res, #c4res").empty();
+               $("#yresname, #c1resname, #c2resname, #c3resname, #c4resname").empty();
+               $("#load").empty();
+               $("#bkgPlayGame").hide();
                
-     
               
        donts.dontCards.length = 0;  //nollställa kort som inte får väljas.
           for(var i = 0; i<5;i++){ //lägg till användarens valda kort bland dont-kort.
                   donts.dontCards[i] = yourCard.yourFive[i];
           }
           
-      
-          
+ 
        yourCard.yourFive.sort(function(a, b){return a-b}); //sortera spelarens kort.
            
        for(var i = 0;i<5;i++){
@@ -1119,6 +1061,14 @@ dealcardsAndCountCardValue : function(){
                             $("#bkgPlayGame").hide();
                              $('.showCards').calculateFiveCardOdds(deck); //starta om
                 });
+            
+           //eller tryck esc. 
+           $(document).on( 'keydown', function (e) {
+                           if ( e.keyCode === 27 ) { 
+                                   $('#playGame, #bkgPlayGame').hide();
+                                    $('.showCards').calculateFiveCardOdds(deck); //starta om
+               }
+           }); 
                
   });
  }, //avsluta funktion
@@ -1555,9 +1505,19 @@ whatsOnHand : function(what, handA, handB, handC, handD, handE){
 resultOutput : function(winprocent, winprocent3, winprocent2, winprocent1, diff){         
       var docwith = $(document).width();
       var docheight = $(document).height();
+      
+      $( document ).on( "mousemove", function( event ) {
+                   
+       //resultatbox som går att flytta på               
+        $("#gameresult").html("<p><b>FLYTTBAR RESULTATBOX<br/><br/></b>Efter " + diff + " giv, hur ofta din hand var bäst mot (räknar inte lika):<br/> <br/>4:a spelare: <b>" 
+                   + winprocent.toFixed(1) + " % </b> (mot cp1,cp2,cp3,cp4): <br/> 3 spelare: <b>" + winprocent3.toFixed(1) + " % </b> (mot cp1,cp2,cp3): <b> </b><br/> 2 spelare: <b>"+ winprocent2.toFixed(1) + " %  </b>  (mot cp1, cp2): <br/> 1 spelare: <b>"+ winprocent1.toFixed(1) + " %</b> (mot cp1): <br/><br/></p>" )
+        $( document ).on("click", function(){$("#gameresult").css({'z-index' : '99', 'position' : 'absolute', 'top' : event.pageY-250, 'left' : event.pageX-600})});
         
-        $("#gameresult").html("<p><b>RESULTAT<br/><br/></b>Efter " + diff + " giv, hur ofta din hand var bäst mot (räknar inte lika):<br/> <br/>4:a spelare: <b>" 
-                   + winprocent.toFixed(1) + " % </b> (mot cp1,cp2,cp3,cp4): <br/> 3 spelare: <b>" + winprocent3.toFixed(1) + " % </b> (mot cp1,cp2,cp3): <b> </b><br/> 2 spelare: <b>"+ winprocent2.toFixed(1) + " %  </b>  (mot cp1, cp2): <br/> 1 spelare: <b>"+ winprocent1.toFixed(1) + " %</b> (mot cp1): </p>" );  
+      });
+      
+      
+       
+       
            
            //om man visar hand-för-hand-läge
        //   if(handforhand == "yes") {
@@ -1581,7 +1541,43 @@ resultOutput : function(winprocent, winprocent3, winprocent2, winprocent1, diff)
                $('#bkgPlayGame').css({ 'background-color' : '#000', 'z-index' : '1', 'width' : docwith, 'height' : docheight, 'position' : 'absolute', 'top' : '0px', 'left' : '0px', 'color' : '#fff', 'opacity' : '0.8'}).show('fast');
 } //close function.     
 
+
+
+
+
 } //close drawgame objekt    
+
+
+//Sektion för fristående funktioner
+
+//funktion för att visa uppsättning av kort som går att välja ifrån.
+function showAllCards(){
+       var h = "h", d= "d", s = "s", k = "c", c, e, f, g;    
+          var innerStyle;  
+      for(var i = 14;i>=LowestCard;i--){ //i>0 ska välja sedan över vilket kort.
+             c = h+i; e = s+i; f = d+i;g = k+i;
+             innerStyle = "float:left;";   
+             var classCard = c + " card style4 left cardMargin";
+             var spader = e + " card style4 left cardMargin";
+             var diamond = f + " card style4 left cardMargin";
+             var club = g + " card style4 left cardMargin";
+             
+         //  console.log('Initierade ' + c + ' klasser är: ' + classCard);    
+      
+         //outprinta kort              
+      $('<input id="' + c + '" class="' + classCard + '"' + 'style="' + innerStyle + '"' +
+              'type="button" value="' + c + '"/>')      
+     .appendTo('.showCards');
+     $('<input id="' + e + '" class="' + spader + '"' + 'type="button" value="' + e + '"/>') 
+     .appendTo('.showCards');
+       $('<input id="' + f + '" class="' + diamond + '"' + 'type="button" value="' + f + '"/>')   
+     .appendTo('.showCards');
+      $('<input id="' + g + '" class="' + club + '"' + 'type="button" value="' + g + '"/>')     
+     .appendTo('.showCards');
+     
+      } //close for-loop
+  } //close function
+
 
 
   
