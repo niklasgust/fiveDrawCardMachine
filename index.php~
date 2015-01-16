@@ -1,7 +1,7 @@
 <?php $title='Five draw card machine'; include(__DIR__ . '/../mall/header.php'); ?>
 
 
-<!--- Copy Section -->
+
 <div id="mainwrapper">
 <h1 class='AweFonts'>FIVE-CARD DRAW MACHINE</h1>
 <h2 id='underHead'>Simulera femkortshänder för att ta reda på sannolikheten att du fått bästa handen i första givet</h2>
@@ -83,6 +83,5 @@ Dubbelklicka på boxen eller tryck esc för att ta bort den.</p>
 </div> <!-- Slut på mainwrapper -->
 <p>&#169; 2015 Niklas Gustavsson</p>
 
-<!-- Close Copy Section -->
 
 <?php $path=__DIR__; include(__DIR__ . '/../mall/footer.php'); ?>
