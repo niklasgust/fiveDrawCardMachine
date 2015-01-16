@@ -61,15 +61,15 @@ $(document).ready(function(){
         //ta bort eventuella barn-element/kort            
           $(".showCards").empty(); 
        $(".choosen").empty(); 
-       $(".choosenHead").empty(); 
+    //   $(".choosenHead").empty(); 
        $("#dealbuttom").empty();
         $("#comp1, #comp2, #comp3, #comp4, #yours").empty();
         $("#yres, #c1res, #c2res, #c3res, #c4res").empty();
          $("#yresname, #c1resname, #c2resname, #c3resname, #c4resname").empty();
          $("#gameresult, #bkgPlayGame").empty();
          $("#playGame, #bkgPlayGame, #playGame, #simulate").hide();
-       
-       
+       $("#resultboxarea").hide();
+       $(".showCards").show(); 
       startsound.play();
    
    //objekt för spelarnas kort och spel  
@@ -1505,22 +1505,17 @@ whatsOnHand : function(what, handA, handB, handC, handD, handE){
 resultOutput : function(winprocent, winprocent3, winprocent2, winprocent1, diff){         
       var docwith = $(document).width();
       var docheight = $(document).height();
-      
-      $( document ).on( "mousemove", function( event ) {
-                   
+       var dummyOutput = $("#lightboxmode").val(); 
+       
+  if(dummyOutput == "yes" || dummyOutput == "YES"){     
+      $( document ).on( "mousemove", function( event ) {            
        //resultatbox som går att flytta på               
-        $("#gameresult").html("<p><b>FLYTTBAR RESULTATBOX<br/><br/></b>Efter " + diff + " giv, hur ofta din hand var bäst mot (räknar inte lika):<br/> <br/>4:a spelare: <b>" 
+        $("#gameresult").html("<p><b>FLYTTBAR RESULTATBOX (för muspil till önskad plats och tryck space) <br/><br/></b>Efter " + diff + " giv, hur ofta din hand var bäst mot (räknar inte lika):<br/> <br/>4:a spelare: <b>" 
                    + winprocent.toFixed(1) + " % </b> (mot cp1,cp2,cp3,cp4): <br/> 3 spelare: <b>" + winprocent3.toFixed(1) + " % </b> (mot cp1,cp2,cp3): <b> </b><br/> 2 spelare: <b>"+ winprocent2.toFixed(1) + " %  </b>  (mot cp1, cp2): <br/> 1 spelare: <b>"+ winprocent1.toFixed(1) + " %</b> (mot cp1): <br/><br/></p>" )
-        $( document ).on("click", function(){$("#gameresult").css({'z-index' : '99', 'position' : 'absolute', 'top' : event.pageY-250, 'left' : event.pageX-600})});
+        $( document ).on("keypress", function(){$("#gameresult").css({'z-index' : '99', 'position' : 'absolute', 'top' : event.pageY-250, 'left' : event.pageX-600})});
         
       });
-      
-      
-       
-       
-           
-           //om man visar hand-för-hand-läge
-       //   if(handforhand == "yes") {
+  
               $('#playGame').show().css({
                                   'width' : '500px',  
                                   'height' : '500px', 
@@ -1539,6 +1534,16 @@ resultOutput : function(winprocent, winprocent3, winprocent2, winprocent1, diff)
                                });
               
                $('#bkgPlayGame').css({ 'background-color' : '#000', 'z-index' : '1', 'width' : docwith, 'height' : docheight, 'position' : 'absolute', 'top' : '0px', 'left' : '0px', 'color' : '#fff', 'opacity' : '0.8'}).show('fast');
+        }      
+        else {       
+         $(".showCards").hide();      
+        $("#resultboxarea").show().html("<p><b>Resultat, " + diff + " omg.  <br/><br/></b>Mot antal spelare... <br/><br/>4 st: <b>" 
+                   + winprocent.toFixed(1) + " % </b>  <br/> 3 st: <b>" + winprocent3.toFixed(1) + " % </b>  <b> </b><br/> 2 st: <b>"+ winprocent2.toFixed(1) + " %  </b>  <br/> 1 st: <b>"+ winprocent1.toFixed(1) + " %</b> <br/><br/></p>" )
+      .css({'z-index' : '99', 'width' : '190', 'margin' : '10'});
+        }
+             
+               
+
 } //close function.     
 
 

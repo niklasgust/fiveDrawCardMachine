@@ -24,13 +24,15 @@
 </label>
 <br/><br/>
 <label>Hand-för-hand-läge (yes/no) <input id='handforhand' type="text" name="handforhand" value="no" style='width:50px;'>
+</label><br/><br/>
+<label>Visa resultat i Lightbox (yes/no) <input id='lightboxmode' type="text" name="lightboxmode" value="yes" style='width:50px;'>
 </label>
 <br/>
 
 
 <br/><br/>
 
-<p id='outputCardNumber'></p>
+<!--<p id='outputCardNumber'></p>-->
 <input id='cardShower' type='button' value='Starta om' />
 <div id='dealbuttom'><p id='load'></p></div>
 <br/>
@@ -38,12 +40,17 @@
 </div>
 
 <!-- Visa korten -->
-<p class="AweFonts" style='position:relative; top:150px; left:50px; color:black; width:500px;'><strong>Välj dina fem kort (simuleringen startar när du valt dina kort)</strong></p>
-<div class="showCards"></div>
-<div class="choosenHead"></div>
-
+<!--<div class="choosenHead"></div>-->
 <div class='choosenarea'>
-<div class="choosen"></div></div>
+<div class="choosen"></div>
+</div>
+
+<div id="resultboxarea" style='background-color:#FFF'></div>
+
+<!--
+ <p class="AweFonts" style='position:relative; top:150px; left:35px; color:black; width:500px;'><strong>Välj dina fem kort (simuleringen startar när du valt dina kort)</strong></p>
+-->
+ <div class="showCards"></div>
 
 <p>
 </p>

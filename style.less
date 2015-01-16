@@ -28,6 +28,7 @@
  
  #antalKort{
     position:relative; 
+     background-image: url("controlbkg.JPG");
     background-color:@greyLighter;
     border:#000;
     padding:10px;
@@ -101,6 +102,26 @@ top: -83px;
 left: -450px;
 background-color: #fff;}
 
+#resultboxarea{
+font-size:12px;
+font-family:georgia, serif;
+position:absolute;
+//float: right;
+clear: left;
+top:310px;
+left:418px;
+background-image: url("controlbkg.JPG");
+background-color: #CCC;
+padding: 20px;
+
+
+border: 1px dashed #CCC;
+
+}
+
+#playGame{
+background-image: url("controlbkg.JPG");
+}
 
 
  /** FORM
@@ -108,8 +129,11 @@ background-color: #fff;}
     width:100px;
     color:#fff;
  }
- 
  */
+ 
+ input[type="text"], input[type="number"], {
+     background-color:#FFF;
+}
  
  /**
  CARD
@@ -120,14 +144,16 @@ background-color: #fff;}
 
 .clearLeft{clear:left;}
 
-.showCards{position:relative; 
- top:100px; left:50px;
+.showCards{position:absolute; 
+ top:300px; left:440px;
  //background-color:#CCC; 
  padding:10px;
  min-height:20em;
 // padding:15px;
  width:500px;
+clear:right;
  float:left;
+ 
 
 }
 
@@ -148,7 +174,8 @@ border:1px dashed #CCC;
 width:220px; 
 height:110px;
 padding:5px;
-position:absolute; top:150px; left:520px;
+position:absolute; top:178px; left:418px;
+background-image: url("controlbkg.JPG");
 background-color:#FFF;
 }
 #resultGame{
