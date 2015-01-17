@@ -794,7 +794,7 @@ CardPicker : function (cpick, cnum, cname, aliasname, num){
             //om valt 5 kort, starta spelet. 
             if(drawGame.checkAntalValdaKort2(num) == 1){
                     //Visa knapp för att börja spelet
-                    $('<input id="deal" class="deal" type="button" value="Klicka här för att simulera spel. Det kan ta tid att simulera alla omgångarna."/>')
+                    $('<input id="deal" class="deal" type="button" value="Klicka här för att simulera spel. Det kan ta tid att simulera ..."/>')
                     .css({'height' : '400px',
                             'width' : '500px',
                            'background-color' : '#333', 
@@ -824,7 +824,8 @@ dealcardsAndCountCardValue : function(){
       var myCardsNumber = 0;
       
      // alert('hello world' + yourCard.yourFive[0] + ', ' + yourCard.yourFive[1] + ', ' + yourCard.yourFive[2] + ', ' + yourCard.yourFive[3] + ', ' + yourCard.yourFive[4]);          
-    
+      
+     
       
        //Vad som händer när man trycker på deal-knappen      
        $('.deal').click(function(){
@@ -1035,28 +1036,13 @@ dealcardsAndCountCardValue : function(){
       console.log('Comp2:s valde kort: ' + comp2.c2five[0] + ',' +  comp2.c2five[1] + ',' +  comp2.c2five[2] + ',' +  comp2.c2five[3] + ',' +  comp2.c2five[4]); 
       console.log('Comp3:s valde kort: ' + comp3.c3five[0] + ',' +  comp3.c3five[1] + ',' +  comp3.c3five[2] + ',' +  comp3.c3five[3] + ',' +  comp3.c3five[4]); 
       console.log('Comp4:s valde kort: ' + comp4.c4five[0] + ',' +  comp4.c4five[1] + ',' +  comp4.c4five[2] + ',' +  comp4.c4five[3] + ',' +  comp4.c4five[4]);                      
-
-                           //   });    
-         //   }
-         
-          $("#yres").html('#' + drawGame.compareFiveHands(yourCard.yourHand, comp1.c1hand, comp2.c2hand, comp3.c3hand, comp4.c4hand));
-                    $("#yresname").html(drawGame.handName(yourCard.yourFive, deck));
-              
-            //Visa plats och hand.
-                    $("#c1resname").html(drawGame.handName(comp1.c1five, deck));
-                    $("#c2resname").html(drawGame.handName(comp2.c2five, deck));
-                    $("#c3resname").html(drawGame.handName(comp3.c3five, deck));
-                    $("#c4resname").html(drawGame.handName(comp4.c4five, deck));
-                    $("#c1res").html('#' + drawGame.compareFiveHands(comp1.c1hand, yourCard.yourHand, comp2.c2hand, comp3.c3hand, comp4.c4hand));
-                    $("#c2res").html('#' + drawGame.compareFiveHands(comp2.c2hand, comp1.c1hand, yourCard.yourHand, comp3.c3hand, comp4.c4hand));
-                    $("#c3res").html('#' + drawGame.compareFiveHands(comp3.c3hand, comp2.c2hand, comp1.c1hand, yourCard.yourHand, comp4.c4hand));
-                    $("#c4res").html('#' + drawGame.compareFiveHands(comp4.c4hand, comp3.c3hand, comp2.c2hand, comp1.c1hand, yourCard.yourHand));
-                          
+     
+                 
           //visa output på sannolikheter.          
          drawGame.resultOutput(winprocent, winprocent3, winprocent2, winprocent1, diff);
         
          //Vad som händer när man stänger resultatboxen.
-            $('#playGame').dblclick(function(){ //annorlunda callback...
+            $('#playGame').click(function(){ //annorlunda callback...
                             $('#playGame').hide();
                             $("#bkgPlayGame").hide();
                              $('.showCards').calculateFiveCardOdds(deck); //starta om
@@ -1176,25 +1162,25 @@ dealcardsAndCountCardValue : function(){
       if(number == 18){return cardNameString = "s10";}             
       if(number == 17){return cardNameString = "c10";}
       
-      if(number == 16){return cardNameString = "h11";}
-      if(number == 15){return cardNameString = "d11";}        
-      if(number == 14){return cardNameString = "s11";}             
-      if(number == 13){return cardNameString = "c11";}
+      if(number == 16){return cardNameString = "hJ";}
+      if(number == 15){return cardNameString = "dJ";}        
+      if(number == 14){return cardNameString = "sJ";}             
+      if(number == 13){return cardNameString = "cJ";}
       
-      if(number == 12){return cardNameString = "h12";}
-      if(number == 11){return cardNameString = "d12";}        
-      if(number == 10){return cardNameString = "s12";}             
-      if(number == 9){return cardNameString = "c12";}
+      if(number == 12){return cardNameString = "hQ";}
+      if(number == 11){return cardNameString = "dQ";}        
+      if(number == 10){return cardNameString = "sQ";}             
+      if(number == 9){return cardNameString = "cQ";}
       
-      if(number == 8){return cardNameString = "h13";}
-      if(number == 7){return cardNameString = "d13";}        
-      if(number == 6){return cardNameString = "s13";}             
-      if(number == 5){return cardNameString = "c13";}
+      if(number == 8){return cardNameString = "hK";}
+      if(number == 7){return cardNameString = "dK";}        
+      if(number == 6){return cardNameString = "sK";}             
+      if(number == 5){return cardNameString = "cK";}
       
-      if(number == 4){return cardNameString = "h14";}
-      if(number == 3){return cardNameString = "d14";}        
-      if(number == 2){return cardNameString = "s14";}             
-      if(number == 1){return cardNameString = "c14";}
+      if(number == 4){return cardNameString = "hA";}
+      if(number == 3){return cardNameString = "dA";}        
+      if(number == 2){return cardNameString = "sA";}             
+      if(number == 1){return cardNameString = "cA";}
         
 },
 
@@ -1505,13 +1491,56 @@ whatsOnHand : function(what, handA, handB, handC, handD, handE){
 resultOutput : function(winprocent, winprocent3, winprocent2, winprocent1, diff){         
       var docwith = $(document).width();
       var docheight = $(document).height();
-       var dummyOutput = $("#lightboxmode").val(); 
+     //  var dummyOutput = $("#lightboxmode").val(); 
+     var log;
+     
+           $('#lightboxmode2').change(function(){
+                           if($(this).attr('checked')){
+                                   $(this).val('YES');
+                       }else{
+                             $(this).val('NO');
+     }
+     // alert($(this).val());
+           });
+           
+  var dummyOutput2 = $("#lightboxmode2").val();        
+ // alert('test: ' + dummyOutput2);
        
-  if(dummyOutput == "yes" || dummyOutput == "YES"){     
+    
+    $("#yres").html('#' + drawGame.compareFiveHands(yourCard.yourHand, comp1.c1hand, comp2.c2hand, comp3.c3hand, comp4.c4hand));
+                    $("#yresname").html(drawGame.handName(yourCard.yourFive, deck));
+              
+            //Visa plats och hand.
+                    $("#c1resname").html(drawGame.handName(comp1.c1five, deck));
+                    $("#c2resname").html(drawGame.handName(comp2.c2five, deck));
+                    $("#c3resname").html(drawGame.handName(comp3.c3five, deck));
+                    $("#c4resname").html(drawGame.handName(comp4.c4five, deck));
+                    $("#c1res").html('#' + drawGame.compareFiveHands(comp1.c1hand, yourCard.yourHand, comp2.c2hand, comp3.c3hand, comp4.c4hand));
+                    $("#c2res").html('#' + drawGame.compareFiveHands(comp2.c2hand, comp1.c1hand, yourCard.yourHand, comp3.c3hand, comp4.c4hand));
+                    $("#c3res").html('#' + drawGame.compareFiveHands(comp3.c3hand, comp2.c2hand, comp1.c1hand, yourCard.yourHand, comp4.c4hand));
+                    $("#c4res").html('#' + drawGame.compareFiveHands(comp4.c4hand, comp3.c3hand, comp2.c2hand, comp1.c1hand, yourCard.yourHand));
+                
+       //visa log
+      log += "'<tr><td style='width:200px;'>" + yourCard.yourFiveName[0] + ", ";              
+     log += "" + yourCard.yourFiveName[1] + ", ";              
+      log += "" + yourCard.yourFiveName[2] + ", "; 
+      log += "" + yourCard.yourFiveName[3] + ", "; 
+      log += "" + yourCard.yourFiveName[4] + "</td>";
+     log +=  "<td>" + winprocent.toFixed(0) + "</td>"; 
+     log +=  "<td>" + winprocent3.toFixed(0) + "</td>"; 
+     log +=  "<td>" + winprocent2.toFixed(0) + "</td>";
+      log +=  "<td>" + winprocent1.toFixed(0) + "</td></tr>'";
+      
+      
+      $(log).appendTo('#logtable');
+    //  alert('Hand' + yourCard.yourFiveName[0] + ', ' + yourCard.yourFiveName[1] + ', ' + yourCard.yourFiveName[2] + ', ' + yourCard.yourFiveName[3] + ', ' + yourCard.yourFiveName[4]);
+      
+      
+  if(dummyOutput2 == "YES"){     
       $( document ).on( "mousemove", function( event ) {            
        //resultatbox som går att flytta på               
-        $("#gameresult").html("<p><b>FLYTTBAR RESULTATBOX (för muspil till önskad plats och tryck space) <br/><br/></b>Efter " + diff + " giv, hur ofta din hand var bäst mot (räknar inte lika):<br/> <br/>4:a spelare: <b>" 
-                   + winprocent.toFixed(1) + " % </b> (mot cp1,cp2,cp3,cp4): <br/> 3 spelare: <b>" + winprocent3.toFixed(1) + " % </b> (mot cp1,cp2,cp3): <b> </b><br/> 2 spelare: <b>"+ winprocent2.toFixed(1) + " %  </b>  (mot cp1, cp2): <br/> 1 spelare: <b>"+ winprocent1.toFixed(1) + " %</b> (mot cp1): <br/><br/></p>" )
+        $("#gameresult").html("<p><b>FLYTTBAR RESULTATBOX (för muspil till önskad plats och tryck space) <br/><br/></b>Efter " + diff + " giv, hur ofta din hand var bäst mot (räknar inte lika):<br/> <br/></b><table><tr><th>Antal <br/>motspelare</th><th>Bäst hand</tr><tr><td>4 (cp1, cp2, cp3, cp4)</td><td>" 
+                   + winprocent.toFixed(1) + " % </td></tr><tr><td> 3 (cp1, cp2, cp3)</td><td>" + winprocent3.toFixed(1) + " %</td></tr><tr><td> 2 (cp1, cp2) </td> <td>"+ winprocent2.toFixed(1) + " % </td></tr><tr><td> 1 (cp1)</td><td>"+ winprocent1.toFixed(1) + " %</td></tr> </table>" )
         $( document ).on("keypress", function(){$("#gameresult").css({'z-index' : '99', 'position' : 'absolute', 'top' : event.pageY-250, 'left' : event.pageX-600})});
         
       });
@@ -1536,9 +1565,10 @@ resultOutput : function(winprocent, winprocent3, winprocent2, winprocent1, diff)
                $('#bkgPlayGame').css({ 'background-color' : '#000', 'z-index' : '1', 'width' : docwith, 'height' : docheight, 'position' : 'absolute', 'top' : '0px', 'left' : '0px', 'color' : '#fff', 'opacity' : '0.8'}).show('fast');
         }      
         else {       
+                
          $(".showCards").hide();      
-        $("#resultboxarea").show().html("<p><b>Resultat, " + diff + " omg.  <br/><br/></b>Mot antal spelare... <br/><br/>4 st: <b>" 
-                   + winprocent.toFixed(1) + " % </b>  <br/> 3 st: <b>" + winprocent3.toFixed(1) + " % </b>  <b> </b><br/> 2 st: <b>"+ winprocent2.toFixed(1) + " %  </b>  <br/> 1 st: <b>"+ winprocent1.toFixed(1) + " %</b> <br/><br/></p>" )
+        $("#resultboxarea").show().html("<p><b>Resultat, " + diff + " omg.  <br/><br/></b><table><tr><th>Antal <br/>motspelare</th><th>Bäst hand</tr><tr><td>4</td><td>" 
+                   + winprocent.toFixed(1) + " % </td></tr><tr><td> 3 </td><td>" + winprocent3.toFixed(1) + " %</td></tr><tr><td> 2 </td> <td>"+ winprocent2.toFixed(1) + " % </td></tr><tr><td> 1 </td><td>"+ winprocent1.toFixed(1) + " %</td></tr> </table>" )
       .css({'z-index' : '99', 'width' : '190', 'margin' : '10'});
         }
              
@@ -1583,9 +1613,6 @@ function showAllCards(){
       } //close for-loop
   } //close function
 
-
-
-  
  //}); //close click-card...
  }
 
