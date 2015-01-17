@@ -10,9 +10,48 @@
  
  
  /**
- Jq..
+layout
  
  */
+
+.outputPosition{
+    position:relative;
+  left:100px;
+  top:0px;
+
+}
+
+.choosen{
+position:absolute; top:0px; left:50px;
+width:500px;
+//background-color:#F1F1F1; 
+}
+.choosenarea{
+border:1px dashed #CCC;
+width:220px; 
+height:110px;
+padding:5px;
+position:absolute; top:30px; left:228px;
+background-image: url("controlbkg.JPG");
+background-color:#FFF;
+}
+#resultGame{
+overflow:auto;
+}
+
+#showCards{
+position:absolute;
+top:300px;
+left:180px;
+width:800px;
+z-index:1;
+ background-image: url("bkgprojekt.JPG");
+// background-repeat: no-repeat;
+// background-color:green;
+
+ }
+
+
  .AweFonts{
       font-family: Raleway, sans-serif;
  }
@@ -27,7 +66,9 @@
  }
  
  #antalKort{
-    position:relative; 
+    position:absolute; 
+    top:30px;
+    left:20px;
      background-image: url("controlbkg.JPG");
     background-color:@greyLighter;
     border:#000;
@@ -108,9 +149,9 @@ font-family:georgia, serif;
 position:absolute;
 //float: right;
 clear: left;
-top:310px;
-left:418px;
-background-image: url("controlbkg.JPG");
+top:180px;
+left:228px;
+//background-image: url("controlbkg.JPG");
 background-color: #CCC;
 padding: 20px;
 
@@ -141,11 +182,10 @@ background-image: url("controlbkg.JPG");
 .left{float:left;}
 .cardMargin{margin-left:-50px; margin-bottom:-50px;}
 .cardMargin2{margin-left:-50px; margin-bottom:-50px; }
-
 .clearLeft{clear:left;}
 
 .showCards{position:absolute; 
- top:300px; left:440px;
+ top:145px; left:250px;
  //background-color:#CCC; 
  padding:10px;
  min-height:20em;
@@ -153,40 +193,28 @@ background-image: url("controlbkg.JPG");
  width:500px;
 clear:right;
  float:left;
+
+
+
+}
+
+
+
+#log{
+position:absolute;
+top:830px;
+left:250px;
+	overflow: scroll;
+	width:400px;
+	height:100px;
+	padding:30px;
+	border:1px dashed #CCC;
+	background:#F1F1F1;
+} 
  
-
+#logtable, #loghead{
+    font-size:0.875em;
 }
-
-.outputPosition{
-    position:relative;
-  left:100px;
-  top:0px;
-
-}
-
-.choosen{
-position:absolute; top:0px; left:50px;
-width:500px;
-//background-color:#F1F1F1; 
-}
-.choosenarea{
-border:1px dashed #CCC;
-width:220px; 
-height:110px;
-padding:5px;
-position:absolute; top:178px; left:418px;
-background-image: url("controlbkg.JPG");
-background-color:#FFF;
-}
-#resultGame{
-overflow:auto;
-}
-
-#showCards{
- background-image: url("bkgprojekt.JPG");
-// background-repeat: no-repeat;
-// background-color:green;
- }
 
  .card{width:82px;height:118px;background-image:url(WZ9Od.gif);
 
@@ -195,17 +223,21 @@ overflow:auto;
   &.h2{background-position:0px 0px;}
   &.h3{background-position:-81px 0;}
   &.h4{background-position:-162px 0px;}
-   &.h5{background-position:-243px 0px;}
-    &.h6{background-position:-324px 0px;}
-      &.h7{background-position:-405px 0px;}
-        &.h8{background-position:-486px 0px;}
-          &.h9{background-position:-567px 0px;}
-          &.h10{background-position:-648px 0px;}
-           &.h11{background-position:-729px 0px;}
-              &.h12{background-position:-810px 0px;}
-              &.h13{background-position:-889px 0px;}
-               &.h14{background-position:-972px 0px;}
-
+  &.h5{background-position:-243px 0px;}
+  &.h6{background-position:-324px 0px;}
+  &.h7{background-position:-405px 0px;}
+  &.h8{background-position:-486px 0px;}
+  &.h9{background-position:-567px 0px;}
+  &.h10{background-position:-648px 0px;}
+  &.h11{background-position:-729px 0px;}
+  &.h12{background-position:-810px 0px;}
+  &.h13{background-position:-889px 0px;}
+  &.h14{background-position:-972px 0px;}
+  &.hJ{background-position:-729px 0px;}
+  &.hQ{background-position:-810px 0px;}
+  &.hK{background-position:-889px 0px;}
+  &.hA{background-position:-972px 0px;} 
+               
                
  &.d2{background-position:0px -117px;}              
  &.d3{background-position:-81px -117px;}
@@ -219,7 +251,12 @@ overflow:auto;
            &.d11{background-position:-729px -117px;}
               &.d12{background-position:-810px -117px;}
               &.d13{background-position:-889px -117px;}
-               &.d14{background-position:-972px -117px;}  
+               &.d14{background-position:-972px -117px;} 
+            &.dJ{background-position:-729px -117px;}
+              &.dQ{background-position:-810px -117px;}
+              &.dK{background-position:-889px -117px;}
+               &.dA{background-position:-972px -117px;}      
+               
                
  &.c2{background-position:0px -234px;}                  
   &.c3{background-position:-81px -234px;}
@@ -234,6 +271,12 @@ overflow:auto;
               &.c12{background-position:-810px -234px;}
               &.c13{background-position:-889px -234px;}
                &.c14{background-position:-972px -234px;}    
+            &.cJ{background-position:-729px -234px;}
+              &.cQ{background-position:-810px -234px;}
+              &.cK{background-position:-889px -234px;}
+               &.cA{background-position:-972px -234px;}      
+               
+               
                
  &.s2{background-position:0px -351px;}               
  &.s3{background-position:-81px -351px;}
@@ -248,7 +291,10 @@ overflow:auto;
               &.s12{background-position:-810px -351px;}
               &.s13{background-position:-889px -351px;}
                &.s14{background-position:-972px -351px;} 
-               
+            &.sJ{background-position:-729px -351px;}
+              &.sQ{background-position:-810px -351px;}
+              &.sK{background-position:-889px -351px;}
+               &.sA{background-position:-972px -351px;}    
                
                
 }
@@ -261,6 +307,7 @@ overflow:auto;
   &.style3{.translate(200px,200px);}
   &.style4{.scale(0.6);}
   &.style14{.scale(0.5);}
+  &.style17{.scale(0.4);margin-left:-50px;}
   &.style5{.rotate(180deg); }
   &.style15{.transform(e('rotate(0deg) scale(0.5)  translate(0px,-20px)'));}
   &.style6{.transition(all,2s); .transform(e('rotate(1440deg) translate(300px,200px)'));}
@@ -273,6 +320,7 @@ overflow:auto;
   &.style13{.transform(e('rotate(180deg) translate(100px,100px)'));}
   &.style16{.transition(all,4s); .transform(e('rotate(360deg) translate(-50px,-200px)'));}
 }
+ 
  
  
  
