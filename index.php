@@ -1,5 +1,3 @@
-<?php $title='Five draw card machine'; include(__DIR__ . '/../mall/header.php'); ?>
-
 
 <!--- Copy Section -->
 <div id="mainwrapper">
@@ -24,8 +22,12 @@
 </label>
 <br/><br/>
 <label>Hand-för-hand-läge (yes/no) <input id='handforhand' type="text" name="handforhand" value="no" style='width:50px;'>
-</label><br/><br/>
-<label>Visa resultat i Lightbox (yes/no) <input id='lightboxmode' type="text" name="lightboxmode" value="yes" style='width:50px;'>
+</label><br/>
+
+<!--<label>Visa resultat i Lightbox (yes/no) <input id='lightboxmode' type="text" name="lightboxmode" value="yes" style='width:50px;'>
+</label>-->
+<br/>
+<label>Visa resultat i Lightbox<input id='lightboxmode2' type="checkbox" name="lightboxmode2" value="YES" checked>
 </label>
 <br/>
 
@@ -63,7 +65,7 @@
 <div id ='playGame' class="AweFonts">
 
 <p>Här visas den senaste spelrundan i hela spelserien.
-Dubbelklicka på boxen eller tryck esc för att ta bort den.</p>
+Klicka på boxen eller tryck esc för att ta bort den.</p>
 
 <div class='outputPosition'>
 <div id='gameresult' class="AweFonts"></div>
@@ -80,9 +82,17 @@ Dubbelklicka på boxen eller tryck esc för att ta bort den.</p>
 
 </div>
 </div>
+
 </div> <!-- Slut på mainwrapper -->
 <p>&#169; 2015 Niklas Gustavsson</p>
 
-<!-- Close Copy Section -->
+<div id='log'><p>Log..</p>
+<table id='loghead'><tr><th style='width:200px;'>Hand</th><th>4p</th><th>3p</th><th>2p</th><th>1p</th></tr></table>
+<table id='logtable'>
 
-<?php $path=__DIR__; include(__DIR__ . '/../mall/footer.php'); ?>
+</table>
+</div>
+
+
+
+<!-- Close Copy Section -->
